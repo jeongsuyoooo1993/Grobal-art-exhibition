@@ -566,7 +566,7 @@ const ExhibitionItem = ({
 // 홈페이지 컴포넌트
 const HomePage = () => {
   const navigate = useNavigate();
-  const [introMode, setIntroMode] = useState(true);
+  const [introMode, setIntroMode] = useState(false);
   const [selectedExhibitions, setSelectedExhibitions] = useState<{[key: number]: Exhibition}>({});
   const [zoomProgress, setZoomProgress] = useState<{[key: number]: number}>({});
   const [activeSection, setActiveSection] = useState<number>(1);
