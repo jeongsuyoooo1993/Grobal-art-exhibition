@@ -873,7 +873,10 @@ const HomePage = () => {
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                     {/* Left Column - Exhibition Card */}
                     <div className="lg:col-span-4">
-                      <ExhibitionCard exhibition={selectedExhibitions[museum.id] || museum.exhibitions[0]} />
+                      <ExhibitionCard 
+                        key={selectedExhibitions[museum.id]?.id || museum.exhibitions[0]?.id || museum.id}
+                        exhibition={selectedExhibitions[museum.id] || museum.exhibitions[0]} 
+                      />
                     </div>
 
                     {/* Right Column - Exhibition List */}
@@ -881,7 +884,7 @@ const HomePage = () => {
                       <div className="bg-[#0a0a0a] border border-white/10">
                         {museum.exhibitions.map((exh, i) => (
                           <motion.div
-                            key={i}
+                            key={exh.id || `${museum.id}-${i}`}
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
